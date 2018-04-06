@@ -6,7 +6,7 @@ const printToDom = (domString, divId) => {
 const buildDomString = (competitors) =>{
     let domString ="";
     for(let i=0; i<competitors.length; i++){
-        domString +=    `<div class="col-xs-6 col-md-3 col-lg-4">`;
+        domString +=    `<div class="col-xs-6 col-md-3 col-lg-1">`;
         domString +=        `<img src="${competitors[i].icon_url}">`;
         domString +=    `</div>`;
     }
