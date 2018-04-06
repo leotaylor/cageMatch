@@ -1,3 +1,8 @@
 body{
     background-color: olive;
 }
+
+img{
+    max-height: 100px;
+    max-width:  100px;
+}
