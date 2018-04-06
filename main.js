@@ -2,7 +2,6 @@ const printToDom = (domString, divId) => {
     document.getElementById(divId).innerHTML = domString;
 };
 
-
 const buildDomString = (competitors, badges) =>{
     let domString ="";
     domString += `<div class="row">`;
@@ -47,4 +46,14 @@ const startApplication = () => {
     genericRequest(executeThisCodeAfterFileLoaded);
 };
 
-startApplication();
+// CLICKING ON THE BUTTON
+const startAFight = () =>{
+    const button = document.getElementById("pushIt");
+        button.addEventListener("click", iClickedIt);
+    }
+    
+const iClickedIt = (e) =>{
+    startApplication();
+}
+
+startAFight();
