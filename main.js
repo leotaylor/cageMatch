@@ -5,7 +5,7 @@ const printToDom = (domString, divId) => {
     document.getElementById(divId).innerHTML = domString;
 };
 
-const buildDomString = (competitor1, competitor2, badges) =>{
+const buildDomString = (competitor1, competitor2, player1badges, player2badges) =>{
     let domString ="";
     domString += `<div class="row">`;
     domString +=    `<div id="competiterOne" class="col-md-6">`;
@@ -19,6 +19,26 @@ const buildDomString = (competitor1, competitor2, badges) =>{
     domString +=        `<h3>${competitor2.points.total}</h3>`;
     domString +=    `</div>`;
     domString += `</div>`;
+    if(competitor1.points.total > competitor2.points.total){
+        domString += `<div class="row">`;
+        domString +=    `<h1>${competitor1.name} is the WINNER!!!</h1>`;
+        domString += `</div>`;
+        for(let i=0; i<player1badges.length; i++){
+            domString +=    `<div class="col-xs-6 col-md-2 col-lg-1">`;
+            domString +=        `<img src="${player1badges[i].icon_url}">`;
+            domString +=    `</div>`;
+        }
+    }
+        else{
+            domString += `<div class="row">`;
+            domString +=    `<h1>${competitor2.name} is the WINNER!!!</h1>`;
+            domString += `</div>`;
+            for(let i=0; i<player2badges.length; i++){
+                domString +=    `<div class="col-xs-6 col-md-2 col-lg-1">`;
+                domString +=        `<img src="${player2badges[i].icon_url}">`;
+                domString +=    `</div>`;
+            }
+        }
     // if winner then announce winner and show badges: 
     // for(let i=0; i<badges.length; i++){
     //     domString +=    `<div class="col-xs-6 col-md-3 col-lg-1">`;
@@ -70,7 +90,7 @@ const xhr2 = (player1JSON) =>{
     myRequest.send(); 
     function nestedFunction () {
         const player2JSON = JSON.parse(this.responseText);
-        buildDomString(player1JSON, player2JSON);
+        buildDomString(player1JSON, player2JSON, player1JSON.badges, player2JSON.badges);
     }
 }
 
