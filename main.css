@@ -6,3 +6,9 @@ img{
     max-height: 100px;
     max-width:  100px;
 }
+
+#winner{
+    background-color: orange;
+    margin-bottom: 45px;
+    margin-top: 45px;
+}

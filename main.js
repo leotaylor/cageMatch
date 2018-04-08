@@ -1,5 +1,3 @@
-let firstPlayer = "";
-let secondPlayer = "";
 
 const printToDom = (domString, divId) => {
     document.getElementById(divId).innerHTML = domString;
@@ -21,7 +19,9 @@ const buildDomString = (competitor1, competitor2, player1badges, player2badges) 
     domString += `</div>`;
     if(competitor1.points.total > competitor2.points.total){
         domString += `<div class="row">`;
-        domString +=    `<h1>${competitor1.name} is the WINNER!!!</h1>`;
+        domString +=    `<div class="col-md-6 col-md-offset-3" id="winner">`;
+        domString +=        `<h1>${competitor1.name} is the WINNER!!!</h1>`;
+        domString +=    `</div>`;
         domString += `</div>`;
         for(let i=0; i<player1badges.length; i++){
             domString +=    `<div class="col-xs-6 col-md-2 col-lg-1">`;
@@ -31,7 +31,9 @@ const buildDomString = (competitor1, competitor2, player1badges, player2badges) 
     }
         else{
             domString += `<div class="row">`;
-            domString +=    `<h1>${competitor2.name} is the WINNER!!!</h1>`;
+            domString +=    `<div class="col-md-6 col-md-offset-3" id="winner">`;
+            domString +=        `<h1>${competitor2.name} is the WINNER!!!</h1>`;
+            domString +=    `</div>`;
             domString += `</div>`;
             for(let i=0; i<player2badges.length; i++){
                 domString +=    `<div class="col-xs-6 col-md-2 col-lg-1">`;
@@ -79,7 +81,7 @@ function player1 (){
 }
 
 const xhr2 = (player1JSON) =>{
-    const player2name = document.getElementById("input1").value;
+    const player2name = document.getElementById("input2").value;
     const player2Url = `https://teamtreehouse.com/${player2name}.json`;
     let myRequest = new XMLHttpRequest();
     myRequest.addEventListener("load", nestedFunction);
