@@ -39,12 +39,6 @@ const buildDomString = (competitor1, competitor2, player1badges, player2badges) 
                 domString +=    `</div>`;
             }
         }
-    // if winner then announce winner and show badges: 
-    // for(let i=0; i<badges.length; i++){
-    //     domString +=    `<div class="col-xs-6 col-md-3 col-lg-1">`;
-    //     domString +=        `<img src="${badges[i].icon_url}">`;
-    //     domString +=    `</div>`;
-    // }
     printToDom(domString, "output");
 }
 
@@ -70,10 +64,12 @@ startAFight();
 
 // --------------------------XHR REQUESTS-----------------------
 const xhr1 = () =>{
+    const player1name = document.getElementById("input1").value;
+    const player1Url = `https://teamtreehouse.com/${player1name}.json`;
     let myRequest = new XMLHttpRequest();
     myRequest.addEventListener("load", player1);
     myRequest.addEventListener("error", executeThisCodeIfXHRFails);
-    myRequest.open("GET", "https://teamtreehouse.com/leotaylor2.json");  
+    myRequest.open("GET", player1Url);  
     myRequest.send(); 
 };
 
@@ -83,21 +79,16 @@ function player1 (){
 }
 
 const xhr2 = (player1JSON) =>{
+    const player2name = document.getElementById("input1").value;
+    const player2Url = `https://teamtreehouse.com/${player2name}.json`;
     let myRequest = new XMLHttpRequest();
     myRequest.addEventListener("load", nestedFunction);
     myRequest.addEventListener("error", executeThisCodeIfXHRFails);
-    myRequest.open("GET", "https://teamtreehouse.com/adamwieckert.json");  
+    myRequest.open("GET", player2Url);  
     myRequest.send(); 
     function nestedFunction () {
         const player2JSON = JSON.parse(this.responseText);
         buildDomString(player1JSON, player2JSON, player1JSON.badges, player2JSON.badges);
     }
 }
-
-
-
-// function executeThisCodeAfterFileLoaded (){
-//     const data = JSON.parse(this.responseText);
-//     buildDomString(data, data.badges);
-// };
 
