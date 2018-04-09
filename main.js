@@ -25,7 +25,7 @@ const buildDomString = (competitor1, competitor2, player1badges, player2badges) 
         domString += `</div>`;
         for(let i=0; i<player1badges.length; i++){
             domString +=    `<div class="col-xs-6 col-md-2 col-lg-1">`;
-            domString +=        `<img src="${player1badges[i].icon_url}">`;
+            domString +=        `<img id="badge" src="${player1badges[i].icon_url}">`;
             domString +=    `</div>`;
         }
     }
@@ -37,7 +37,7 @@ const buildDomString = (competitor1, competitor2, player1badges, player2badges) 
             domString += `</div>`;
             for(let i=0; i<player2badges.length; i++){
                 domString +=    `<div class="col-xs-6 col-md-2 col-lg-1">`;
-                domString +=        `<img src="${player2badges[i].icon_url}">`;
+                domString +=        `<img id="badge" src="${player2badges[i].icon_url}">`;
                 domString +=    `</div>`;
             }
         }

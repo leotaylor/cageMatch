@@ -1,12 +1,17 @@
 body{
     background-color: olive;
+    margin-top: 10px;
 }
 
 img{
-    max-height: 100px;
-    max-width:  100px;
+    max-height: 250px;
+    max-width:  250px;
+    border-radius: 30%;
 }
-
+#badge{
+    width: 100px;
+    height: 100px;
+}
 #winner{
     background-color: orange;
     margin-bottom: 45px;
