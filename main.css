@@ -1,6 +1,11 @@
 body{
-    background-color: olive;
+    background-color: black;
     margin-top: 10px;
+    background-image: url(https://new4.fjcdn.com/pictures/Slap_525d1f_570173.jpg);
+    background-size: 80%;
+    background-position: 230px 55px;
+    background-repeat: no-repeat;
+    color: red;
 }
 
 img{
@@ -11,7 +16,10 @@ img{
 #badge{
     width: 100px;
     height: 100px;
+    animation:spin 2s linear infinite;
 }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
 #winner{
     background-color: orange;
     margin-bottom: 45px;
